@@ -1,0 +1,86 @@
+:root {
+  --boxColor: #0ff7;
+}
+
+body {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+  perspective: 10em;
+  perspective-origin: 50% calc(50% - 2em);
+}
+
+.scene {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.ball {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background: lightblue;
+  position: absolute;
+  left: -0.5em;
+  bottom: 1em;
+}
+
+.scene .cube {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: -1em;
+  left: -1em;
+}
+.scene .cube .left,
+.scene .cube .right,
+.scene .cube .front,
+.scene .cube .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--boxColor);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.6666666667) inset;
+}
+.scene .cube .front {
+  transform: translateZ(1em);
+}
+.scene .cube .right {
+  transform: rotateY(90deg) translateZ(1em);
+}
+.scene .cube .back {
+  transform: rotateY(180deg) translateZ(1em);
+}
+.scene .cube .left {
+  transform: rotateY(270deg) translateZ(1em);
+}
+.scene .cube .top {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background: var(--boxColor);
+  transform: translateY(50%) rotateX(90deg);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.6666666667) inset;
+}
+.scene .cube .bottom {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background: #fff;
+  bottom: 0;
+  transform: translateY(50%) rotateX(90deg);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.6666666667) inset;
+}
+
+.floor {
+  position: absolute;
+  top: 1em;
+  transform: translate(-50%, -50%) rotateX(90deg);
+  width: 15em;
+  height: 15em;
+  background-image: radial-gradient(rgba(0, 0, 0, 0), #000 75%), repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
+  background-size: 100%, 1em 1em;
+}/*# sourceMappingURL=index.css.map */
